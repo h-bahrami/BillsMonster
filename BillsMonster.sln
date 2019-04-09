@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{86C96DFD-62E4-4D7E-94B7-5B0641AA3BB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D89E0996-1D50-4065-8512-953D21CD41D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4B76F025-0705-441F-A1FD-C29910E96B8C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{1FE0267B-B4CA-4C35-87F7-A0290F3D8253}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{6E9E3AE2-EC40-45D9-85C1-CE8DE07018B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Domain", "src\core\BillsMonster.Domain\BillsMonster.Domain.csproj", "{C902D489-AB2E-423A-AA9F-FC854392C59A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Common", "src\common\BillsMonster.Common\BillsMonster.Common.csproj", "{88F43091-95CE-47CB-A703-D2FE48D918CA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Application", "src\core\BillsMonster.Application\BillsMonster.Application.csproj", "{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.WebApi.Server", "src\presentation\BillsMonster.WebApi\BillsMonster.WebApi.Server\BillsMonster.WebApi.Server.csproj", "{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.WebApi.Client", "src\presentation\BillsMonster.WebApi\BillsMonster.WebApi.Client\BillsMonster.WebApi.Client.csproj", "{38450763-EE94-48E0-9BD1-57D95238CE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Infrastructure", "src\infrastructure\BillsMonster.Infrastructure\BillsMonster.Infrastructure.csproj", "{85CE343A-FC72-4D28-9189-50B8C2259490}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C902D489-AB2E-423A-AA9F-FC854392C59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C902D489-AB2E-423A-AA9F-FC854392C59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C902D489-AB2E-423A-AA9F-FC854392C59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C902D489-AB2E-423A-AA9F-FC854392C59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F43091-95CE-47CB-A703-D2FE48D918CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F43091-95CE-47CB-A703-D2FE48D918CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F43091-95CE-47CB-A703-D2FE48D918CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F43091-95CE-47CB-A703-D2FE48D918CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38450763-EE94-48E0-9BD1-57D95238CE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38450763-EE94-48E0-9BD1-57D95238CE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38450763-EE94-48E0-9BD1-57D95238CE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38450763-EE94-48E0-9BD1-57D95238CE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85CE343A-FC72-4D28-9189-50B8C2259490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85CE343A-FC72-4D28-9189-50B8C2259490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85CE343A-FC72-4D28-9189-50B8C2259490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85CE343A-FC72-4D28-9189-50B8C2259490}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D89E0996-1D50-4065-8512-953D21CD41D3} = {86C96DFD-62E4-4D7E-94B7-5B0641AA3BB5}
+		{4B76F025-0705-441F-A1FD-C29910E96B8C} = {86C96DFD-62E4-4D7E-94B7-5B0641AA3BB5}
+		{1FE0267B-B4CA-4C35-87F7-A0290F3D8253} = {86C96DFD-62E4-4D7E-94B7-5B0641AA3BB5}
+		{6E9E3AE2-EC40-45D9-85C1-CE8DE07018B4} = {86C96DFD-62E4-4D7E-94B7-5B0641AA3BB5}
+		{C902D489-AB2E-423A-AA9F-FC854392C59A} = {4B76F025-0705-441F-A1FD-C29910E96B8C}
+		{88F43091-95CE-47CB-A703-D2FE48D918CA} = {D89E0996-1D50-4065-8512-953D21CD41D3}
+		{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754} = {4B76F025-0705-441F-A1FD-C29910E96B8C}
+		{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB} = {1FE0267B-B4CA-4C35-87F7-A0290F3D8253}
+		{85CE343A-FC72-4D28-9189-50B8C2259490} = {6E9E3AE2-EC40-45D9-85C1-CE8DE07018B4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C50E9D2B-B203-4590-A8FE-60E7FE3993B6}
+	EndGlobalSection
+EndGlobal
