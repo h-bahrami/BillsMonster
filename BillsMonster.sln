@@ -21,11 +21,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Common", "src\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Application", "src\core\BillsMonster.Application\BillsMonster.Application.csproj", "{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.WebApi.Server", "src\presentation\BillsMonster.WebApi\BillsMonster.WebApi.Server\BillsMonster.WebApi.Server.csproj", "{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.WebApi.Server", "src\presentation\BillsMonster.WebApi\BillsMonster.WebApi.Server\BillsMonster.WebApi.Server.csproj", "{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.WebApi.Client", "src\presentation\BillsMonster.WebApi\BillsMonster.WebApi.Client\BillsMonster.WebApi.Client.csproj", "{38450763-EE94-48E0-9BD1-57D95238CE49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.WebApi.Client", "src\presentation\BillsMonster.WebApi\BillsMonster.WebApi.Client\BillsMonster.WebApi.Client.csproj", "{38450763-EE94-48E0-9BD1-57D95238CE49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Infrastructure", "src\infrastructure\BillsMonster.Infrastructure\BillsMonster.Infrastructure.csproj", "{85CE343A-FC72-4D28-9189-50B8C2259490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Infrastructure", "src\infrastructure\BillsMonster.Infrastructure\BillsMonster.Infrastructure.csproj", "{85CE343A-FC72-4D28-9189-50B8C2259490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Application.Tests", "tests\BillsMonster.Application.Tests\BillsMonster.Application.Tests.csproj", "{F8F02B05-1D69-42B9-B26B-983150454CD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Domain.Tests", "Tests\BillsMonster.Domain.Tests\BillsMonster.Domain.Tests.csproj", "{9961BCBB-C036-4142-8EE1-269B16F6013F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{85CE343A-FC72-4D28-9189-50B8C2259490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85CE343A-FC72-4D28-9189-50B8C2259490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85CE343A-FC72-4D28-9189-50B8C2259490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8F02B05-1D69-42B9-B26B-983150454CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8F02B05-1D69-42B9-B26B-983150454CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8F02B05-1D69-42B9-B26B-983150454CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8F02B05-1D69-42B9-B26B-983150454CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9961BCBB-C036-4142-8EE1-269B16F6013F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9961BCBB-C036-4142-8EE1-269B16F6013F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9961BCBB-C036-4142-8EE1-269B16F6013F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9961BCBB-C036-4142-8EE1-269B16F6013F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +83,8 @@ Global
 		{6A7E7134-BBCE-4566-9CAF-D4ADF1F80754} = {4B76F025-0705-441F-A1FD-C29910E96B8C}
 		{963AE0EA-1E6E-416D-BC07-3CE4ED9A73DB} = {1FE0267B-B4CA-4C35-87F7-A0290F3D8253}
 		{85CE343A-FC72-4D28-9189-50B8C2259490} = {6E9E3AE2-EC40-45D9-85C1-CE8DE07018B4}
+		{F8F02B05-1D69-42B9-B26B-983150454CD9} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
+		{9961BCBB-C036-4142-8EE1-269B16F6013F} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C50E9D2B-B203-4590-A8FE-60E7FE3993B6}

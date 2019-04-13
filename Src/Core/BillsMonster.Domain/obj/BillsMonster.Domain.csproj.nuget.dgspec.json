@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {}
+    "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
+    "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
+        "projectUniqueName": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
         "projectName": "BillsMonster.Common",
-        "projectPath": "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
-        "packagesPath": "C:\\Users\\hossein\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\common\\BillsMonster.Common\\obj\\",
+        "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
+        "packagesPath": "C:\\Users\\hbahr\\.nuget\\packages\\",
+        "outputPath": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\hossein\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hbahr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,14 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "K:\\nuget\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
@@ -47,21 +40,6 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "dependencies": {
-            "Microsoft.NETCore.Platforms": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.0-preview3.19128.7, )",
-              "autoReferenced": true
-            },
-            "Microsoft.WindowsDesktop.App": {
-              "include": "None",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.0-preview3-27504-2, )",
-              "autoReferenced": true
-            }
-          },
           "imports": [
             "net461"
           ],
@@ -70,20 +48,20 @@
         }
       }
     },
-    "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {
+    "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
+        "projectUniqueName": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
         "projectName": "BillsMonster.Domain",
-        "projectPath": "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
-        "packagesPath": "C:\\Users\\hossein\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\core\\BillsMonster.Domain\\obj\\",
+        "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
+        "packagesPath": "C:\\Users\\hbahr\\.nuget\\packages\\",
+        "outputPath": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\hossein\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hbahr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,20 +69,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "K:\\nuget\\packages": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-entityframeworkcore/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/aspnet-extensions/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-core/index.json": {},
-          "https://dotnetfeed.blob.core.windows.net/dotnet-windowsdesktop/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
-                "projectPath": "C:\\Users\\hossein\\source\\repos\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj"
+              "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
+                "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj"
               }
             }
           }
@@ -117,21 +88,6 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "dependencies": {
-            "Microsoft.NETCore.Platforms": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.0-preview3.19128.7, )",
-              "autoReferenced": true
-            },
-            "Microsoft.WindowsDesktop.App": {
-              "include": "None",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.0-preview3-27504-2, )",
-              "autoReferenced": true
-            }
-          },
           "imports": [
             "net461"
           ],
