@@ -9,6 +9,8 @@ namespace BillsMonster.Domain.Entities
         public string Description { get; set; }
         public Guid? ParentId { get; set;}
         public Group? Parent { get; set; }
+        public Guid UserId { get; set; }
+        public User User { get; set; }
         public ICollection<Group> Children { get; set;}
         public ICollection<Bill> Bills { get; set; }
 

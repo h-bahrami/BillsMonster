@@ -30,7 +30,7 @@ namespace BillsMonster.Application.Groups.Commands.Update
             {
                 var entity = await dbContext.Groups.FindAsync(request.Id);
 
-                if(entity == null)
+                if (entity == null)
                 {
                     throw new NotFoundException(nameof(Group), request.Id);
                 }
@@ -42,7 +42,12 @@ namespace BillsMonster.Application.Groups.Commands.Update
                 dbContext.Groups.Update(entity);
 
                 await dbContext.SaveChangesAsync(cancellationToken);
-                await mediator.Publish(new GroupUpdated() { GroupId = entity.Id, GroupTitle = entity.Title}, cancellationToken);
+                // await mediator.Publish(new GroupUpdated() { GroupId = entity.Id, GroupTitle = entity.Title}, cancellationToken);
+                await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.UPDATE, nameof(Group))
+                {
+                    Id = entity.Id,
+                    Title = entity.Title
+                }, cancellationToken);
                 return Unit.Value;
             }
         }

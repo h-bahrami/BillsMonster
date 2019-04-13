@@ -7,11 +7,12 @@ namespace BillsMonster.Domain.Entities
     public class User: Base
     {        
         public string Email { get; set; }
-        public ICollection<Group> BillGroups { get; set; }
+        public UserProfile Profile { get; set; }
+        public ICollection<Group> BillsGroups { get; set; }
 
         public User(): base()
         {
-            BillGroups = new HashSet<Group>();
+            BillsGroups = new HashSet<Group>();
         }
     }
 }

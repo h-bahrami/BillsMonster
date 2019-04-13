@@ -17,10 +17,12 @@ namespace BillsMonster.Application.Groups.Commands.Delete
         public class Handler : IRequestHandler<DeleteGroupCommand, Unit>
         {
             private readonly IBillsMonsterDbContext dbContext;
+            private readonly IMediator mediator;
 
-            public Handler(IBillsMonsterDbContext dbContext)
+            public Handler(IBillsMonsterDbContext dbContext, IMediator mediator)
             {
                 this.dbContext = dbContext;
+                this.mediator = mediator;
             }
 
             public async Task<Unit> Handle(DeleteGroupCommand request, CancellationToken cancellationToken)
@@ -33,7 +35,7 @@ namespace BillsMonster.Application.Groups.Commands.Delete
                 }
 
                 var hasOpenBills = entity.Bills.Any(x => !x.PaidAt.HasValue);
-                if(hasOpenBills)
+                if (hasOpenBills)
                 {
                     throw new DeleteFailureException(nameof(Group), request.Id, $"There is/are unpaid bills in this group");
                 }
@@ -41,6 +43,11 @@ namespace BillsMonster.Application.Groups.Commands.Delete
                 dbContext.Groups.Remove(entity);
 
                 await dbContext.SaveChangesAsync(cancellationToken);
+                await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.DELETE, nameof(Group))
+                {
+                    Title = entity.Title,
+                    Id = entity.Id
+                }, cancellationToken);
 
                 return Unit.Value;
             }
