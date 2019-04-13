@@ -1,10 +1,8 @@
-﻿using AutoMapper;
-using BillsMonster.Application.Interfaces.Mapping;
-using BillsMonster.Domain.Entities;
-using System;
+﻿using System;
 using System.Linq.Expressions;
+using BillsMonster.Domain.Entities;
 
-namespace BillsMonster.Application.Bills
+namespace UsersMonster.Application.Users
 {
     public class UserModel
     {

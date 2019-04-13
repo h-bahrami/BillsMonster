@@ -27,9 +27,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.WebApi.Client"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Infrastructure", "src\infrastructure\BillsMonster.Infrastructure\BillsMonster.Infrastructure.csproj", "{85CE343A-FC72-4D28-9189-50B8C2259490}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Application.Tests", "tests\BillsMonster.Application.Tests\BillsMonster.Application.Tests.csproj", "{F8F02B05-1D69-42B9-B26B-983150454CD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Application.Tests", "tests\BillsMonster.Application.Tests\BillsMonster.Application.Tests.csproj", "{F8F02B05-1D69-42B9-B26B-983150454CD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Domain.Tests", "Tests\BillsMonster.Domain.Tests\BillsMonster.Domain.Tests.csproj", "{9961BCBB-C036-4142-8EE1-269B16F6013F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Domain.Tests", "Tests\BillsMonster.Domain.Tests\BillsMonster.Domain.Tests.csproj", "{9961BCBB-C036-4142-8EE1-269B16F6013F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Common.Tests", "Tests\BillsMonster.Common.Testsq\BillsMonster.Common.Tests.csproj", "{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Infrastructure.Tests", "Tests\BillsMonster.Infrastructure.Tests\BillsMonster.Infrastructure.Tests.csproj", "{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Persistence", "src\infrastructure\BillsMonster.Persistence\BillsMonster.Persistence.csproj", "{2A48449D-2878-4DDA-9E62-CBF0D776C15C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Persistence.Tests", "tests\BillsMonster.Persistence.Tests\BillsMonster.Persistence.Tests.csproj", "{AEE6AF2F-26C1-4C6B-A33F-5121428879F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.WebApi.Server.Tests", "tests\BillsMonster.WebApi.Server.Tests\BillsMonster.WebApi.Server.Tests.csproj", "{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +79,26 @@ Global
 		{9961BCBB-C036-4142-8EE1-269B16F6013F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9961BCBB-C036-4142-8EE1-269B16F6013F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9961BCBB-C036-4142-8EE1-269B16F6013F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A48449D-2878-4DDA-9E62-CBF0D776C15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A48449D-2878-4DDA-9E62-CBF0D776C15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A48449D-2878-4DDA-9E62-CBF0D776C15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A48449D-2878-4DDA-9E62-CBF0D776C15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE6AF2F-26C1-4C6B-A33F-5121428879F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE6AF2F-26C1-4C6B-A33F-5121428879F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE6AF2F-26C1-4C6B-A33F-5121428879F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE6AF2F-26C1-4C6B-A33F-5121428879F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +115,11 @@ Global
 		{85CE343A-FC72-4D28-9189-50B8C2259490} = {6E9E3AE2-EC40-45D9-85C1-CE8DE07018B4}
 		{F8F02B05-1D69-42B9-B26B-983150454CD9} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
 		{9961BCBB-C036-4142-8EE1-269B16F6013F} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
+		{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
+		{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
+		{2A48449D-2878-4DDA-9E62-CBF0D776C15C} = {6E9E3AE2-EC40-45D9-85C1-CE8DE07018B4}
+		{AEE6AF2F-26C1-4C6B-A33F-5121428879F9} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
+		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C50E9D2B-B203-4590-A8FE-60E7FE3993B6}

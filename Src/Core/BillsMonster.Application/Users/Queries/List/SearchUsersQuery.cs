@@ -1,5 +1,4 @@
-﻿using BillsMonster.Application.Interfaces;
-using MediatR;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,16 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using BillsMonster.Application.Interfaces;
 
-namespace BillsMonster.Application.Bills.Queries.List
+namespace UsersMonster.Application.Users.Queries.List
 {
-    public class SearchBillsQuery : IRequest<List<BillModel>>
+    public class SearchUsersQuery : IRequest<List<UserModel>>
     {
         public Guid UserId { get; set; }
         public string SearchWord { get; set; }
 
-        public class Handler : IRequestHandler<SearchBillsQuery, List<BillModel>>
+        public class Handler : IRequestHandler<SearchUsersQuery, List<UserModel>>
         {
             private readonly IBillsMonsterDbContext dbContext;
             private readonly IMapper mapper;
@@ -27,11 +27,10 @@ namespace BillsMonster.Application.Bills.Queries.List
                 this.mapper = mapper;
             }
 
-            public async Task<List<BillModel>> Handle(SearchBillsQuery request, CancellationToken cancellationToken)
+            public async Task<List<UserModel>> Handle(SearchUsersQuery request, CancellationToken cancellationToken)
             {
-                var list = await dbContext.Bills.Where(x => x.Group.UserId == request.UserId && (
-                    x.Title.Contains(request.SearchWord) || x.Note.Contains(request.SearchWord)))
-                    .ProjectTo<BillModel>(mapper.ConfigurationProvider)
+                var list = await dbContext.Users.Where(x => x.Id == request.UserId && x.Email.Contains(request.SearchWord))
+                    .ProjectTo<UserModel>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
                 return list;

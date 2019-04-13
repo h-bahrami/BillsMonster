@@ -1,5 +1,4 @@
-﻿using BillsMonster.Application.Interfaces;
-using MediatR;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +7,15 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using BillsMonster.Application.Interfaces;
 
-namespace BillsMonster.Application.Bills.Queries.Detail
+namespace UsersMonster.Application.Users.Queries.Detail
 {
-    public class GetBillsListQuery : IRequest<List<BillModel>>
+    public class GetUsersListQuery : IRequest<List<UserModel>>
     {
         public Guid UserId { get; set; }
 
-        public class Handler : IRequestHandler<GetBillsListQuery, List<BillModel>>
+        public class Handler : IRequestHandler<GetUsersListQuery, List<UserModel>>
         {
             private readonly IBillsMonsterDbContext dbContext;
             private readonly IMapper mapper;
@@ -26,10 +26,9 @@ namespace BillsMonster.Application.Bills.Queries.Detail
                 this.mapper = mapper;
             }
 
-            public async Task<List<BillModel>> Handle(GetBillsListQuery request, CancellationToken cancellationToken)
+            public async Task<List<UserModel>> Handle(GetUsersListQuery request, CancellationToken cancellationToken)
             {
-                var list = await dbContext.Bills.Where(x => x.Group.UserId == request.UserId)
-                    .ProjectTo<BillModel>(mapper.ConfigurationProvider)
+                var list = await dbContext.Users.Where(x => x.Id == request.UserId).ProjectTo<UserModel>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
                 return list;
