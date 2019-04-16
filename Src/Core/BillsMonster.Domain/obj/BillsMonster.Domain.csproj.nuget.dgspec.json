@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {}
+    "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
+    "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
+        "projectUniqueName": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
         "projectName": "BillsMonster.Common",
-        "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
-        "packagesPath": "C:\\Users\\hbahr\\.nuget\\packages\\",
-        "outputPath": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\obj\\",
+        "projectPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj",
+        "packagesPath": "C:\\Users\\hossein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\common\\BillsMonster.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\hbahr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hossein\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\nuget\\packages": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
@@ -69,20 +70,20 @@
         }
       }
     },
-    "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {
+    "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
         "projectName": "BillsMonster.Domain",
-        "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
-        "packagesPath": "C:\\Users\\hbahr\\.nuget\\packages\\",
-        "outputPath": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\obj\\",
+        "projectPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj",
+        "packagesPath": "C:\\Users\\hossein\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\hbahr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hossein\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -90,6 +91,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "K:\\nuget\\packages": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
           "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
@@ -101,8 +103,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
-                "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj"
+              "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj": {
+                "projectPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\common\\BillsMonster.Common\\BillsMonster.Common.csproj"
               }
             }
           }

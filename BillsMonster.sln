@@ -31,15 +31,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Application.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Domain.Tests", "Tests\BillsMonster.Domain.Tests\BillsMonster.Domain.Tests.csproj", "{9961BCBB-C036-4142-8EE1-269B16F6013F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Common.Tests", "Tests\BillsMonster.Common.Testsq\BillsMonster.Common.Tests.csproj", "{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Common.Tests", "Tests\BillsMonster.Common.Testsq\BillsMonster.Common.Tests.csproj", "{7B5BB0DC-291E-4E4D-90F4-F2799A45BCFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Infrastructure.Tests", "Tests\BillsMonster.Infrastructure.Tests\BillsMonster.Infrastructure.Tests.csproj", "{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Infrastructure.Tests", "Tests\BillsMonster.Infrastructure.Tests\BillsMonster.Infrastructure.Tests.csproj", "{884C3E99-BCB9-4BFA-8C5E-C5065A2831AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Persistence", "src\infrastructure\BillsMonster.Persistence\BillsMonster.Persistence.csproj", "{2A48449D-2878-4DDA-9E62-CBF0D776C15C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Persistence", "src\infrastructure\BillsMonster.Persistence\BillsMonster.Persistence.csproj", "{2A48449D-2878-4DDA-9E62-CBF0D776C15C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.Persistence.Tests", "tests\BillsMonster.Persistence.Tests\BillsMonster.Persistence.Tests.csproj", "{AEE6AF2F-26C1-4C6B-A33F-5121428879F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.Persistence.Tests", "tests\BillsMonster.Persistence.Tests\BillsMonster.Persistence.Tests.csproj", "{AEE6AF2F-26C1-4C6B-A33F-5121428879F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.WebApi.Server.Tests", "tests\BillsMonster.WebApi.Server.Tests\BillsMonster.WebApi.Server.Tests.csproj", "{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BillsMonster.WebApi.Server.Tests", "tests\BillsMonster.WebApi.Server.Tests\BillsMonster.WebApi.Server.Tests.csproj", "{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{9191A785-2EE4-44C9-95EE-2D5D429D9F94}"
+	ProjectSection(SolutionItems) = preProject
+		Plan.md = Plan.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
