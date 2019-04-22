@@ -13,6 +13,8 @@ namespace BillsMonster.Application.Interfaces
 
         DbSet<User> Users { get; set; }
 
+        DbSet<Reminder> Reminders { get; set;}
+
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

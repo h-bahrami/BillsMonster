@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using BillsMonster.Application.Groups.Commands;
+﻿using BillsMonster.Application.Groups.Commands;
 using BillsMonster.Application.Interfaces;
 using BillsMonster.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

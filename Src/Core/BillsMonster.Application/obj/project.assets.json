@@ -635,7 +635,7 @@
   },
   "libraries": {
     "AutoMapper/8.0.0": {
-      "sha512": "kcbje0Y71XkvzPn8k6OROZGOn2SKaWimon3Bu1WUTVoV5GTJVym+k+zQuKApyyFVRfk7bisumj/qUX4xIIXS+Q==",
+      "sha512": "px8ZMtIq84dxciB29V+ZYOtsRLZP4JlflDDMW13LyeRdwsnIInzlcSHSxpWmVD6U3bbOl2FeLlgomnVtm0jvXw==",
       "type": "package",
       "path": "automapper/8.0.0",
       "files": [
@@ -1396,7 +1396,7 @@
       ]
     },
     "System.Interactive.Async/3.2.0": {
-      "sha512": "T3nigy9yShklMyVu7I2TvlVMRy2vUn9oQeBaRy0KZcOptyy+rUbekYaXxoa3s0h2tWT3UVtzrGkQC89CBbCtlg==",
+      "sha512": "C07p0dAA5lGqYUPiPCK3paR709gqS4aMDDsje0v0pvffwzLaxmsn5YQTfZbyNG5qrudPx+BCxTqISnncQ3wIoQ==",
       "type": "package",
       "path": "system.interactive.async/3.2.0",
       "files": [
@@ -2634,23 +2634,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hossein\\.nuget\\packages\\": {},
+    "C:\\Users\\hbahr\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Application\\BillsMonster.Application.csproj",
+      "projectUniqueName": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Application\\BillsMonster.Application.csproj",
       "projectName": "BillsMonster.Application",
-      "projectPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Application\\BillsMonster.Application.csproj",
-      "packagesPath": "C:\\Users\\hossein\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Application\\obj\\",
+      "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Application\\BillsMonster.Application.csproj",
+      "packagesPath": "C:\\Users\\hbahr\\.nuget\\packages\\",
+      "outputPath": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\hossein\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hbahr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2658,7 +2658,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "K:\\nuget\\packages": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore-tooling/index.json": {},
         "https://dotnetfeed.blob.core.windows.net/aspnet-aspnetcore/index.json": {},
@@ -2670,8 +2669,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {
-              "projectPath": "C:\\Users\\hossein\\Documents\\github.com\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj"
+            "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj": {
+              "projectPath": "D:\\Workspace\\github\\BillsMonster\\src\\core\\BillsMonster.Domain\\BillsMonster.Domain.csproj"
             }
           }
         }
