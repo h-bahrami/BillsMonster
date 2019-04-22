@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{9191A785-2
 		Plan.md = Plan.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillsMonster.WebApi2", "src\presentation\BillsMonster.WebApi2\BillsMonster.WebApi2.csproj", "{FCF91CC3-9E72-4E2D-ADFA-495AF94DD501}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCF91CC3-9E72-4E2D-ADFA-495AF94DD501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCF91CC3-9E72-4E2D-ADFA-495AF94DD501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCF91CC3-9E72-4E2D-ADFA-495AF94DD501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCF91CC3-9E72-4E2D-ADFA-495AF94DD501}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +131,7 @@ Global
 		{2A48449D-2878-4DDA-9E62-CBF0D776C15C} = {6E9E3AE2-EC40-45D9-85C1-CE8DE07018B4}
 		{AEE6AF2F-26C1-4C6B-A33F-5121428879F9} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
 		{0F74AE2E-EAF2-4578-A82F-02D7EA31C941} = {1CEB4F52-FAF8-49C7-9EBD-1597F83381E2}
+		{FCF91CC3-9E72-4E2D-ADFA-495AF94DD501} = {1FE0267B-B4CA-4C35-87F7-A0290F3D8253}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C50E9D2B-B203-4590-A8FE-60E7FE3993B6}
