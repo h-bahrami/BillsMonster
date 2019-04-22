@@ -9,6 +9,7 @@ namespace BillsMonster.Persistence
         public DbSet<Bill> Bills { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Reminder> Reminders { get; set;}
 
         public BillsMonsterDbContext(DbContextOptions<BillsMonsterDbContext> options): base(options)
         {

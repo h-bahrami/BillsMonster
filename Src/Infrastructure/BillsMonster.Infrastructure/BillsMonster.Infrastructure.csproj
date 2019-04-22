@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\common\BillsMonster.Common\BillsMonster.Common.csproj" />
+    <ProjectReference Include="..\..\core\BillsMonster.Application\BillsMonster.Application.csproj" />
   </ItemGroup>
 
 </Project>
