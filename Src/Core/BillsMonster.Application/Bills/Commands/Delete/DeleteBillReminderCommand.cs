@@ -4,18 +4,16 @@ using BillsMonster.Application.Interfaces;
 using BillsMonster.Domain.Entities;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace BillsMonster.Application.Bills.Commands.Delete
 {
-    public class DeleteBillCommand : IRequest
+    public class DeleteBillReminderCommand: IRequest
     {
-        public Guid Id { get; set; }
+        public Guid ReminderId { get; set; }
 
-        public class Handler : IRequestHandler<DeleteBillCommand, Unit>
+        public class Handler : IRequestHandler<DeleteBillReminderCommand, Unit>
         {
             private readonly IBillsMonsterDbContext dbContext;
             private readonly IMediator mediator;
@@ -25,20 +23,27 @@ namespace BillsMonster.Application.Bills.Commands.Delete
                 this.dbContext = dbContext;
                 this.mediator = mediator;
             }
-            public async Task<Unit> Handle(DeleteBillCommand request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(DeleteBillReminderCommand request, CancellationToken cancellationToken)
             {
-                var entity = await dbContext.Bills.FindAsync(request.Id);
-                if (entity == null)
+                var reminder = await dbContext.Reminders.FindAsync(request.ReminderId);
+                if (reminder == null)
                 {
-                    throw new NotFoundException(nameof(Bill), request.Id);
+                    throw new NotFoundException(nameof(Reminder), request.ReminderId);
                 }
-                dbContext.Bills.Remove(entity);
+
+                var bill = await dbContext.Bills.FindAsync(reminder.BillId);
+                if (bill == null)
+                {
+                    throw new NotFoundException(nameof(Bill), reminder.BillId);
+                }
+
+                bill.Reminders.Remove(reminder);
                 await dbContext.SaveChangesAsync(cancellationToken);
                 await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.DELETE,
-                    nameof(Bill))
+                    nameof(Reminder))
                 {
-                    Id = request.Id,
-                    Title = entity.Title
+                    Id = request.ReminderId,
+                    Title = reminder.Title
                 }, cancellationToken);
                 return Unit.Value;
             }

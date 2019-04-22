@@ -3,19 +3,16 @@ using BillsMonster.Application.Groups.Commands;
 using BillsMonster.Application.Interfaces;
 using BillsMonster.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace BillsMonster.Application.Bills.Commands.Create
+namespace UsersMonster.Application.Users.Commands.Create
 {
-    public class CreateBillCommand : IRequest
+    public class CreateUserCommand : IRequest
     {
-        public BillModel Model { get; set; }
+        public UserModel Model { get; set; }
 
-        public class Handler : IRequestHandler<CreateBillCommand, Unit>
+        public class Handler : IRequestHandler<CreateUserCommand, Unit>
         {
             private readonly IBillsMonsterDbContext dbContext;
             private readonly IMediator mediator;
@@ -26,15 +23,15 @@ namespace BillsMonster.Application.Bills.Commands.Create
                 this.dbContext = dbContext;
                 this.mediator = mediator;
             }
-            public async Task<Unit> Handle(CreateBillCommand request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(CreateUserCommand request, CancellationToken cancellationToken)
             {
-                var entity = (Bill) request.Model; // mapper.Map<BillModel, Bill>(request.Model);
-                dbContext.Bills.Add(entity);
+                var entity = (User) request.Model; // mapper.Map<UserModel, User>(request.Model);
+                dbContext.Users.Add(entity);
                 await dbContext.SaveChangesAsync(cancellationToken);
-                await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.CREATE, nameof(Bill))
+                await mediator.Publish(new EntityCommandsNotification(BillsMonster.Application.Notifications.NotificationActionType.CREATE, nameof(User))
                 {
                     Id = entity.Id,
-                    Title = entity.Title
+                    Title = entity.Email.Substring(0,5)
                 }, cancellationToken);
                 return Unit.Value;
             }

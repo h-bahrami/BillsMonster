@@ -17,8 +17,11 @@ namespace BillsMonster.Domain.Entities
         public Guid GroupId { get; set; }
         public Group Group { get; set;}
 
+        public ICollection<Reminder> Reminders { get; set; }
+
         public Bill(): base()
         {
+            Reminders = new HashSet<Reminder>();
         }
     }
 }

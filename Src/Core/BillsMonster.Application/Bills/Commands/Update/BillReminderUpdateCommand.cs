@@ -1,4 +1,5 @@
-﻿using BillsMonster.Application.Groups.Commands;
+﻿using BillsMonster.Application.Exceptions;
+using BillsMonster.Application.Groups.Commands;
 using BillsMonster.Application.Interfaces;
 using BillsMonster.Domain.Entities;
 using MediatR;
@@ -10,11 +11,14 @@ using System.Threading.Tasks;
 
 namespace BillsMonster.Application.Bills.Commands.Update
 {
-    public class BillUpdateCommand : IRequest
+    public class BillReminderUpdateCommand : IRequest
     {
-        public BillModel Model { get; set; }
+        public Guid ReminderId { get; set; }
+        public string Title { get; set; }
+        public ReminderType Type { get; set; }
+        public DateTime AlarmTime { get; set; }
 
-        public class Handler : IRequestHandler<BillUpdateCommand, Unit>
+        public class Handler : IRequestHandler<BillReminderUpdateCommand, Unit>
         {
             private readonly IBillsMonsterDbContext dbContext;
             private readonly IMediator mediator;
@@ -25,21 +29,22 @@ namespace BillsMonster.Application.Bills.Commands.Update
                 this.mediator = mediator;
             }
 
-            public async Task<Unit> Handle(BillUpdateCommand request, CancellationToken cancellationToken)
+            public async Task<Unit> Handle(BillReminderUpdateCommand request, CancellationToken cancellationToken)
             {
-                var entity = await dbContext.Bills.FindAsync(request.Model.Id);
+                var entity = await dbContext.Reminders.FindAsync(request.ReminderId);
 
-                entity.Title = request.Model.Title;
-                entity.ReferenceId = request.Model.ReferenceId;
-                entity.ReceivedAt = request.Model.ReceivedAt;
-                entity.PaidAt = request.Model.PaidAt;
-                entity.Note = request.Model.Note;
-                entity.Image = request.Model.Image;
-                entity.GroupId = request.Model.GroupId;
-                entity.DueDate = request.Model.DueDate;
-                entity.Amount = request.Model.Amount;
+                if(entity == null)
+                {
+                    throw new NotFoundException(nameof(Reminder), request.ReminderId);
+                }
 
-                dbContext.Bills.Update(entity);
+
+
+                entity.Title = request.Title;
+                entity.AlarmTime = request.AlarmTime;
+                entity.Type = request.Type;
+
+                dbContext.Reminders.Update(entity);
                 await dbContext.SaveChangesAsync(cancellationToken);
                 await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.UPDATE,
                     nameof(Bill))

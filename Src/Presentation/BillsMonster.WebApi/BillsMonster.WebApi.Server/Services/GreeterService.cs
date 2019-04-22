@@ -1,19 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using BillsMonster.WebApi.Models;
 using Greet;
 using Grpc.Core;
 
 namespace BillsMonster.WebApi
 {
-    public class GreeterService : Greeter.GreeterBase
+    public class GreeterService //: Greeter.GreeterBase
     {
-        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+        public Task<XReply> SayHello2(XRequest request, ServerCallContext context)
         {
-            return Task.FromResult(new HelloReply
+            return Task.FromResult(new XReply()
             {
-                Message = "Hello " + request.Name
+                Id = 1,
+                Content = "Hello " + request.Name
+            });
+        }
+
+        public Task<XReply> SayHello(XRequest request, ServerCallContext context)
+        {
+            return Task.FromResult(new XReply()
+            {
+                Id = 1,
+                Content = "Hello " + request.Name
             });
         }
     }
