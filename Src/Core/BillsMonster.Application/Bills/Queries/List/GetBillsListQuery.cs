@@ -9,7 +9,7 @@ using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
-namespace BillsMonster.Application.Bills.Queries.Detail
+namespace BillsMonster.Application.Bills.Queries.List
 {
     public class GetBillsListQuery : IRequest<List<BillModel>>
     {

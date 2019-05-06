@@ -118,23 +118,23 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.1.0, )"
             },
             "FluentValidation": {
               "target": "Package",
-              "version": "[8.2.3, )"
+              "version": "[8.3.0, )"
             },
             "MediatR": {
               "target": "Package",
-              "version": "[6.0.0, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.0.0-preview3.19153.1, )"
+              "version": "[3.0.0-preview4.19216.3, )"
             },
             "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",
-              "version": "[3.0.0-preview3.19153.1, )"
+              "version": "[3.0.0-preview4.19216.2, )"
             },
             "Microsoft.NETCore.Platforms": {
               "suppressParent": "All",

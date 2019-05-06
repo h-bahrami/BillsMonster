@@ -9,6 +9,11 @@ using BillsMonster.Application.Infrastructure.AutoMapper;
 using BillsMonster.Application.Interfaces;
 using BillsMonster.Infrastructure;
 using MediatR;
+using BillsMonster.Application.Bills.Queries.List;
+using BillsMonster.Application.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
+using BillsMonster.WebApi2.Filters;
+using FluentValidation.AspNetCore;
 
 namespace BillsMonster.WebApi2
 {
@@ -24,9 +29,19 @@ namespace BillsMonster.WebApi2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services
+                .AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddNewtonsoftJson();
+            //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
+
             services.AddMvc().AddNewtonsoftJson();
-            // services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
-            
+            services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
+            services.AddMediatR(typeof(GetBillsListQuery).GetTypeInfo().Assembly);
+
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
             services.AddTransient<INotificationService, NotificationService>();
             services.AddSwaggerDocument();
         }
