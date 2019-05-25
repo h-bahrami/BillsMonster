@@ -1,5 +1,7 @@
-﻿using MediatR.Pipeline;
+﻿using BillsMonster.Domain.Entities;
+using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
 using System.Threading;
 using System.Threading.Tasks;
 

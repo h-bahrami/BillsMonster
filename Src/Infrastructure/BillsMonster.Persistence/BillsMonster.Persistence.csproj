@@ -6,6 +6,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0-preview4.19216.3" />
+    <PackageReference Include="mongocsharpdriver" Version="2.9.0-beta1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.9.0-beta1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.9.0-beta1" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.9.0-beta1" />
   </ItemGroup>
 
   <ItemGroup>

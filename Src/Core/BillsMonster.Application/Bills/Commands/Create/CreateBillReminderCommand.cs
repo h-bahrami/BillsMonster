@@ -3,6 +3,8 @@ using BillsMonster.Application.Groups.Commands;
 using BillsMonster.Application.Interfaces;
 using BillsMonster.Domain.Entities;
 using MediatR;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,11 +33,14 @@ namespace BillsMonster.Application.Bills.Commands.Create
 
             public async Task<Unit> Handle(CreateBillReminderCommand request, CancellationToken cancellationToken)
             {
-                var bill = await this.dbContext.Bills.FindAsync(request.BillId);
+                
+                var bill = await this.dbContext.Bills.FindAsync(new BsonDocument("BillId", request.BillId)); // .FindAsync(request.BillId);
                 if (bill == null)
                 {
                     throw new NotFoundException(nameof(Bill), request.BillId);
                 }
+
+
 
                 bill.Reminders.Add(new Reminder()
                 {
