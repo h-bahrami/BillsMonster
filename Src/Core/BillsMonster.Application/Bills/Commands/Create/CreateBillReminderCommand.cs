@@ -20,6 +20,9 @@ namespace BillsMonster.Application.Bills.Commands.Create
         public ReminderType Type { get; set; }
         public DateTime AlarmTime { get; set; }
 
+
+        public string SomeText { get; internal set; }
+
         public class Handler : IRequestHandler<CreateBillReminderCommand, Unit>
         {
             private readonly IBillsMonsterDbContext dbContext;

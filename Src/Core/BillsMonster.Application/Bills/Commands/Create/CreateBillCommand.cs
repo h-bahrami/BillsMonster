@@ -25,7 +25,8 @@ namespace BillsMonster.Application.Bills.Commands.Create
             public async Task<Unit> Handle(CreateBillCommand request, CancellationToken cancellationToken)
             {
                 var entity = (Bill) request.Model; // mapper.Map<BillModel, Bill>(request.Model);
-                dbContext.Bills.Add(entity);
+                dbContext.Bills.InsertOne(entity);
+                dbContext.Bills.Find<Bill>(x=>x);
                 await dbContext.SaveChangesAsync(cancellationToken);
                 await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.CREATE, nameof(Bill))
                 {

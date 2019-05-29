@@ -14,6 +14,9 @@ using BillsMonster.Application.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using BillsMonster.WebApi2.Filters;
 using FluentValidation.AspNetCore;
+using BillsMonster.Domain.Infrastructure;
+using BillsMonster.Application.Interfaces.Data;
+using BillsMonster.Persistence;
 
 namespace BillsMonster.WebApi2
 {
@@ -41,6 +44,14 @@ namespace BillsMonster.WebApi2
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
+            services.AddSingleton<DbConfig>(new DbConfig()
+            {
+                Database = "billsmonster",
+                ConnectionString = Configuration.GetConnectionString("billmonster")
+            });
+
+            services.AddTransient<IBillsDataService, BillsDataService>();
 
             services.AddTransient<INotificationService, NotificationService>();
             services.AddSwaggerDocument();

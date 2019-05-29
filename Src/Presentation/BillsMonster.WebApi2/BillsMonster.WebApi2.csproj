@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\core\BillsMonster.Application\BillsMonster.Application.csproj" />
     <ProjectReference Include="..\..\infrastructure\BillsMonster.Infrastructure\BillsMonster.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\infrastructure\BillsMonster.Persistence\BillsMonster.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
