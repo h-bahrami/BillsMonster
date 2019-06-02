@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BillsMonster.Application.Interfaces.Data
 {
-    public interface IBillsDataService : IDataService<Bill>
+    public interface IBillsRepository : IRepository<Bill>
     {
         Task<IEnumerable<Bill>> GetAllAsync();
     }

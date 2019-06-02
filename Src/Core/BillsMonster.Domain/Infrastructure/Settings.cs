@@ -4,9 +4,9 @@ using System.Text;
 
 namespace BillsMonster.Domain.Infrastructure
 {
-    public class DbConfig
+    public class Settings
     {
         public string ConnectionString { get; set; }
-        public string  Database { get; set; }
+        public string Database { get; set; }
     }
 }

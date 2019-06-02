@@ -45,13 +45,13 @@ namespace BillsMonster.WebApi2
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
 
-            services.AddSingleton<DbConfig>(new DbConfig()
+            services.Configure<Settings>(options =>
             {
-                Database = "billsmonster",
-                ConnectionString = Configuration.GetConnectionString("billmonster")
+                options.Database = Configuration.GetSection("MongodbConnection:Database").Value;
+                options.ConnectionString = Configuration.GetSection("MongodbConnection:ConnectionString").Value;
             });
 
-            services.AddTransient<IBillsDataService, BillsDataService>();
+            services.AddTransient<IBillsRepository, BillsRepository>();
 
             services.AddTransient<INotificationService, NotificationService>();
             services.AddSwaggerDocument();

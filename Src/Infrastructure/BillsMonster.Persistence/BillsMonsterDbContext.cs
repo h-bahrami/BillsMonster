@@ -1,29 +1,56 @@
 ﻿using BillsMonster.Application.Interfaces;
 using BillsMonster.Domain.Entities;
+using BillsMonster.Domain.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using System;
 
 namespace BillsMonster.Persistence
 {
-    public class BillsMonsterDbContext : IBillsMonsterDbContext // DbContext, 
+    public class BillsMonsterDbContext : IBillsMonsterDbContext 
     {
-        //public DbSet<Bill> Bills { get; set; }
-        //public DbSet<Group> Groups { get; set; }
-        //public DbSet<User> Users { get; set; }
-        //public DbSet<Reminder> Reminders { get; set;}
+        private readonly IMongoDatabase _database;
 
-        //public BillsMonsterDbContext(DbContextOptions<BillsMonsterDbContext> options): base(options)
-        //{
-        //}
+        public BillsMonsterDbContext(IOptions<Settings> settings)
+        {
+            var client = new MongoClient(settings.Value.ConnectionString);
+            _database = client.GetDatabase(settings.Value.Database);
+            
+        }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.ApplyConfigurationsFromAssembly(typeof(BillsMonsterDbContext).Assembly);
-        //}
+        public IMongoCollection<Bill> Bills
+        {
+            get
+            {
+                return _database.GetCollection<Bill>("Bills");
+            }
+        }
+        public IMongoCollection<Group> Groups
+        {
+            get
+            {
+                return _database.GetCollection<Group>("Groups");
+            }
+        }
+        public IMongoCollection<User> Users
+        {
+            get
+            {
+                return _database.GetCollection<User>("Users");
+            }
+        }
+        public IMongoCollection<Reminder> Reminders
+        {
+            get
+            {
+                return _database.GetCollection<Reminder>("Reminders");
+            }
+        }
 
-        public IMongoCollection<Bill> Bills { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public IMongoCollection<Group> Groups { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public IMongoCollection<User> Users { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public IMongoCollection<Reminder> Reminders { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public void Dispose()
+        {
+            
+        }
     }
 }

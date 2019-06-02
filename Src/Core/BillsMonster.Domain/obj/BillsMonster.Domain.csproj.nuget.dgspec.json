@@ -131,6 +131,10 @@
               "target": "Package",
               "version": "[3.0.0-preview3-27504-2, )",
               "autoReferenced": true
+            },
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.9.0-beta1, )"
             }
           },
           "imports": [

@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace BillsMonster.Application.Interfaces.Data
 {
-    public interface IDataService<TObject>
+    public interface IRepository<TObject>
     {
         Task InsertAsync(TObject bill);
-        Task UpdateAsync(TObject bill);
+
+        Task<TObject> FindAsync(Guid id);
+
+        Task<bool> UpdateAsync(TObject bill);
+
         Task<bool> DeleteAsync(Guid id);
-        Task<IEnumerable<TObject>> Find();
+
     }
 }
