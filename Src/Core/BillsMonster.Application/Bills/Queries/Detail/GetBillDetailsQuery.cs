@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace BillsMonster.Application.Bills.Queries.Detail
 {
-    public class GetBillDetailsQuery : IRequest<BillModel>
+    public class GetBillDetailsQuery : IRequest<BillDto>
     {
         public Guid Id { get; set;}
 
-        public class Handler : IRequestHandler<GetBillDetailsQuery, BillModel>
+        public class Handler : IRequestHandler<GetBillDetailsQuery, BillDto>
         {
             private readonly IBillsMonsterDbContext dbContext;
 
@@ -22,7 +22,7 @@ namespace BillsMonster.Application.Bills.Queries.Detail
             {
                 this.dbContext = dbContext;
             }
-            public async Task<BillModel> Handle(GetBillDetailsQuery request, CancellationToken cancellationToken)
+            public async Task<BillDto> Handle(GetBillDetailsQuery request, CancellationToken cancellationToken)
             {
                 var entity =  await dbContext.Bills.FindAsync(request.Id);
                 if(entity == null)
@@ -30,7 +30,7 @@ namespace BillsMonster.Application.Bills.Queries.Detail
                     throw new NotFoundException(nameof(Bill), request.Id);
                 }
 
-                return (BillModel) entity;
+                return (BillDto) entity;
             }
         }
     }

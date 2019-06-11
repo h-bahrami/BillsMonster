@@ -59,7 +59,6 @@ namespace BillsMonster.Persistence
         {
             try
             {
-
                 var insertOptions = new InsertOneOptions();
                 insertOptions.BypassDocumentValidation = false;
                 await context.Bills.InsertOneAsync(bill, insertOptions, cancellationToken);

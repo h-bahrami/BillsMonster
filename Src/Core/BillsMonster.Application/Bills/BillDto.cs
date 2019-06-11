@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 
 namespace BillsMonster.Application.Bills
 {
-    public class BillModel : IHaveCustomMapping
+    public class BillDto : IHaveCustomMapping
     {
         public Guid Id { get; set; }
         public DateTime RecordTime { get; set; }
@@ -20,12 +20,12 @@ namespace BillsMonster.Application.Bills
         public DateTime? PaidAt { get; set; }
         public Guid GroupId { get; set; }
 
-        public static explicit operator BillModel(Bill entity)
+        public static explicit operator BillDto(Bill entity)
         {
             return Projection.Compile().Invoke(entity);
         }
 
-        public static explicit operator Bill(BillModel model)
+        public static explicit operator Bill(BillDto model)
         {
             return ReverseProjection.Compile().Invoke(model);
         }
@@ -33,11 +33,11 @@ namespace BillsMonster.Application.Bills
         /// <summary>
         /// Entit to Model projection
         /// </summary>
-        public static Expression<Func<Bill, BillModel>> Projection
+        public static Expression<Func<Bill, BillDto>> Projection
         {
             get
             {
-                return entity => new BillModel()
+                return entity => new BillDto()
                 {
                     Id = entity.Id,
                     RecordTime = entity.RecordTime,
@@ -54,7 +54,7 @@ namespace BillsMonster.Application.Bills
             }
         }
 
-        public static Expression<Func<BillModel, Bill>> ReverseProjection
+        public static Expression<Func<BillDto, Bill>> ReverseProjection
         {
             get
             {
@@ -77,7 +77,7 @@ namespace BillsMonster.Application.Bills
 
         public void CreateMappings(Profile configuration)
         {
-            configuration.CreateMap<Bill, BillModel>()
+            configuration.CreateMap<Bill, BillDto>()
                 .ForMember(ent => ent.Id, opt => opt.MapFrom(b => b.Id))
                 .ForMember(ent => ent.RecordTime, opt => opt.MapFrom(b => b.RecordTime))
                 .ForMember(ent => ent.Title, opt => opt.MapFrom(b => b.Title))

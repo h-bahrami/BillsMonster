@@ -12,7 +12,7 @@ namespace BillsMonster.Application.Bills.Commands.Update
 {
     public class BillUpdateCommand : IRequest
     {
-        public BillModel Model { get; set; }
+        public BillDto Model { get; set; }
 
         public class Handler : IRequestHandler<BillUpdateCommand, Unit>
         {

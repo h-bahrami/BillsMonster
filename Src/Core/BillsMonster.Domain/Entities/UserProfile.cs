@@ -4,7 +4,7 @@ namespace BillsMonster.Domain.Entities
 {
     public class UserProfile
     {
-        public User User { get; set; }
+        // public User User { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
         public string PasswordHint { get; set; }

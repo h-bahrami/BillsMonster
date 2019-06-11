@@ -1,38 +1,21 @@
-﻿using BillsMonster.Application.Groups.Commands;
-using BillsMonster.Application.Interfaces;
-using BillsMonster.Application.Interfaces.Data;
-using BillsMonster.Domain.Entities;
+﻿using BillsMonster.Application.Interfaces;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
+using System;
 
 namespace BillsMonster.Application.Bills.Commands.Create
 {
-    public class CreateBillCommand : IRequest
+    public partial class CreateBillCommand : IRequest
     {
-        public BillModel Model { get; set; }
-
-        public class Handler : IRequestHandler<CreateBillCommand, Unit>
-        {
-            private readonly IBillsRepository dbContext;
-            private readonly IMediator mediator;
-            // private readonly IMapper mapper;
-
-            public Handler(IBillsRepository dbContext, IMediator mediator)
-            {
-                this.dbContext = dbContext;
-                this.mediator = mediator;
-            }
-            public async Task<Unit> Handle(CreateBillCommand request, CancellationToken cancellationToken)
-            {
-               await dbContext.InsertAsync(request.Model.);
-                await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.CREATE, nameof(Bill))
-                {
-                    Id = entity.Id,
-                    Title = entity.Title
-                }, cancellationToken);
-                return Unit.Value;
-            }
-        }
+        public Guid Id { get; set; }
+        public DateTime RecordTime { get; set; }
+        public string Title { get; set; }
+        public string Note { get; set; }
+        public string ReferenceId { get; set; }
+        public float Amount { get; set; }
+        public string Image { get; set; }
+        public DateTime? ReceivedAt { get; set; }
+        public DateTime? DueDate { get; set; }
+        public DateTime? PaidAt { get; set; }
+        public Guid GroupId { get; set; }
     }
 }

@@ -11,11 +11,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BillsMonster.Application.Bills.Queries.List
 {
-    public class GetBillsListQuery : IRequest<List<BillModel>>
+    public class GetBillsListQuery : IRequest<List<BillDto>>
     {
         public Guid UserId { get; set; }
 
-        public class Handler : IRequestHandler<GetBillsListQuery, List<BillModel>>
+        public class Handler : IRequestHandler<GetBillsListQuery, List<BillDto>>
         {
             private readonly IBillsMonsterDbContext dbContext;
             private readonly IMapper mapper;
@@ -26,10 +26,10 @@ namespace BillsMonster.Application.Bills.Queries.List
                 this.mapper = mapper;
             }
 
-            public async Task<List<BillModel>> Handle(GetBillsListQuery request, CancellationToken cancellationToken)
+            public async Task<List<BillDto>> Handle(GetBillsListQuery request, CancellationToken cancellationToken)
             {
                 var list = await dbContext.Bills.Where(x => x.Group.UserId == request.UserId)
-                    .ProjectTo<BillModel>(mapper.ConfigurationProvider)
+                    .ProjectTo<BillDto>(mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken);
 
                 return list;

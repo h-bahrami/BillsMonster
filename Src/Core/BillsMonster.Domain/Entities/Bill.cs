@@ -15,7 +15,7 @@ namespace BillsMonster.Domain.Entities
         public DateTime? DueDate { get; set; }
         public DateTime? PaidAt { get; set; }
         public Guid GroupId { get; set; }
-        public Group Group { get; set;}
+        // public Group Group { get; set;}
 
         public ICollection<Reminder> Reminders { get; set; }
 
