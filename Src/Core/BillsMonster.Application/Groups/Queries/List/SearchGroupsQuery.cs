@@ -1,37 +1,32 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
-using BillsMonster.Application.Interfaces;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using BillsMonster.Application.Interfaces.Data;
 
 namespace BillsMonster.Application.Groups.Queries.List
 {
-    public class SearchGroupsQuery : IRequest<List<GroupDetailModel>>
+    public class SearchGroupsQuery : IRequest<IEnumerable<GroupDetailModel>>
     {
         public Guid UserId { get; set; }
         public string SearchWord { get; set; }
 
-        public class Handler : IRequestHandler<SearchGroupsQuery, List<GroupDetailModel>>
+        public class Handler : IRequestHandler<SearchGroupsQuery, IEnumerable<GroupDetailModel>>
         {
-            private readonly IBillsMonsterDbContext dbContext;
+            private readonly IGroupsRepository repo;
             private readonly IMapper mapper;
 
-            public Handler(IBillsMonsterDbContext dbContext, IMapper mapper)
+            public Handler(IGroupsRepository repo, IMapper mapper)
             {
-                this.dbContext = dbContext;
+                this.repo = repo;
                 this.mapper = mapper;
             }
-            public async Task<List<GroupDetailModel>> Handle(SearchGroupsQuery request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<GroupDetailModel>> Handle(SearchGroupsQuery request, CancellationToken cancellationToken)
             {
-                var list = await dbContext.Groups.Where(x => x.UserId == request.UserId &&
-                (x.Title.Contains(request.SearchWord) || x.Description.Contains(request.SearchWord)))
-                    .ProjectTo<GroupDetailModel>(mapper.ConfigurationProvider).ToListAsync(cancellationToken);
-                return list;
+                var list = await repo.GetGroups(request.SearchWord);
+                return mapper.Map<IEnumerable<GroupDetailModel>>(list);
             }
         }
     }
