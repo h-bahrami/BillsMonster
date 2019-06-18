@@ -14,11 +14,13 @@ namespace BillsMonster.Application.Groups.Commands
         public string Title { get; set; }
         public NotificationActionType ActionType { get; private set; }
         public string EntityName { get; private set;}
+        public NotificationStatus Status { get; set; }
 
-        public EntityCommandsNotification(NotificationActionType actionType, string entityName = "")
+        public EntityCommandsNotification(NotificationActionType actionType, string entityName = "", NotificationStatus status = NotificationStatus.SUCCEED)
         {
             ActionType = actionType;
             EntityName = entityName;
+            Status = status;
         }
 
         public class Handler : INotificationHandler<EntityCommandsNotification>
@@ -34,8 +36,8 @@ namespace BillsMonster.Application.Groups.Commands
             {
                 await this.notificationService.SendAsync(new Notifications.Models.Message()
                 {
-                    Subject = $"{notification.EntityName} {notification.ActionType} Command",
-                    Body = $"Action {notification.ActionType} on {notification.EntityName} {notification.Title} ({notification.Id}) done."
+                    Subject = $"{notification.EntityName} {notification.ActionType} Status {notification.Status}",
+                    Body = $"Action {notification.ActionType} on {notification.EntityName} {notification.Title} ({notification.Id})  done."
                 });
             }
         }

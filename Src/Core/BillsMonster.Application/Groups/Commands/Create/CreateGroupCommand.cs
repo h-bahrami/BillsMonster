@@ -1,4 +1,6 @@
-﻿using BillsMonster.Application.Interfaces;
+﻿using AutoMapper;
+using BillsMonster.Application.Interfaces;
+using BillsMonster.Application.Interfaces.Data;
 using BillsMonster.Domain.Entities;
 using MediatR;
 using System;
@@ -13,31 +15,25 @@ namespace BillsMonster.Application.Groups.Commands.Create
 
         public class Handler : IRequestHandler<CreateGroupCommand, Unit>
         {
-            private readonly IBillsMonsterDbContext dbContext;
+            private readonly IGroupsRepository groupsRepo;
             private readonly IMediator mediator;
+            private readonly IMapper mapper;
 
-            public Handler(IBillsMonsterDbContext dbContext, IMediator mediator)
+            public Handler(IGroupsRepository repo, IMediator mediator, IMapper mapper)
             {
-                this.dbContext = dbContext;
+                this.groupsRepo = repo;
                 this.mediator = mediator;
+                this.mapper = mapper;
             }
 
             public async Task<Unit> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
             {
-                var entity = new Domain.Entities.Group()
-                {
-                    Title = request.Model.Title,
-                    Description = request.Model.Description,
-                    ParentId = request.Model.ParentId
-                };
-
-                dbContext.Groups.Add(entity);
-                await dbContext.SaveChangesAsync(cancellationToken);
-                //await mediator.Publish(new GroupCreated() { GroupId = entity.Id }, cancellationToken);
+                var mappedObj = mapper.Map<Group>(request.Model);
+                await groupsRepo.InsertAsync(mappedObj);
                 await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.CREATE, nameof(Group))
                 {
-                    Id = entity.Id,
-                    Title = entity.Title
+                    Id = mappedObj.Id,
+                    Title = mappedObj.Title
                 }, cancellationToken);
                 return Unit.Value;
             }

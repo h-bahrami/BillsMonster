@@ -1,5 +1,5 @@
 ﻿using BillsMonster.Application.Exceptions;
-using BillsMonster.Application.Interfaces;
+using BillsMonster.Application.Interfaces.Data;
 using BillsMonster.Domain.Entities;
 using MediatR;
 using System;
@@ -14,16 +14,16 @@ namespace BillsMonster.Application.Groups.Queries.Detail
 
         public class Handler : IRequestHandler<GetGroupDetailQuery, GroupDetailModel>
         {
-            private readonly IBillsMonsterDbContext dbContext;
+            private readonly IGroupsRepository repo;
 
-            public Handler(IBillsMonsterDbContext dbContext)
+            public Handler(IGroupsRepository repo)
             {
-                this.dbContext = dbContext;
+                this.repo = repo;
             }
 
             public async Task<GroupDetailModel> Handle(GetGroupDetailQuery request, CancellationToken cancellationToken)
             {
-                var entity = await dbContext.Groups.FindAsync(request.Id);
+                var entity = await repo.FindAsync(request.Id);
                 if (entity == null)
                 {
                     throw new NotFoundException(nameof(Group), request.Id);

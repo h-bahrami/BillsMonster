@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
+using BillsMonster.Application.Interfaces.Data;
 
 namespace BillsMonster.Application.Bills.Queries.List
 {
@@ -15,24 +16,21 @@ namespace BillsMonster.Application.Bills.Queries.List
     {
         public Guid UserId { get; set; }
 
-        public class Handler : IRequestHandler<GetBillsListQuery, List<BillDto>>
+        public class Handler : IRequestHandler<GetBillsListQuery, IEnumerable<BillDto>>
         {
-            private readonly IBillsMonsterDbContext dbContext;
+            private readonly IBillsRepository dbContext;
             private readonly IMapper mapper;
 
-            public Handler(IBillsMonsterDbContext dbContext, IMapper mapper)
+            public Handler(IBillsRepository dbContext, IMapper mapper)
             {
                 this.dbContext = dbContext;
                 this.mapper = mapper;
             }
 
-            public async Task<List<BillDto>> Handle(GetBillsListQuery request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<BillDto>> Handle(GetBillsListQuery request, CancellationToken cancellationToken)
             {
-                var list = await dbContext.Bills.Where(x => x.Group.UserId == request.UserId)
-                    .ProjectTo<BillDto>(mapper.ConfigurationProvider)
-                .ToListAsync(cancellationToken);
-
-                return list;
+                var list = await dbContext.GetBillsByAsync(request.UserId);
+                return mapper.Map<IEnumerable<BillDto>>(list);
             }
         }
     }

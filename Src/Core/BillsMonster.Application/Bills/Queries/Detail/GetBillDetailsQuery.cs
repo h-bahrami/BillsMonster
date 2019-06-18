@@ -1,5 +1,6 @@
 ﻿using BillsMonster.Application.Exceptions;
 using BillsMonster.Application.Interfaces;
+using BillsMonster.Application.Interfaces.Data;
 using BillsMonster.Domain.Entities;
 using MediatR;
 using System;
@@ -16,15 +17,15 @@ namespace BillsMonster.Application.Bills.Queries.Detail
 
         public class Handler : IRequestHandler<GetBillDetailsQuery, BillDto>
         {
-            private readonly IBillsMonsterDbContext dbContext;
+            private readonly IBillsRepository dbContext;
 
-            public Handler(IBillsMonsterDbContext dbContext)
+            public Handler(IBillsRepository dbContext)
             {
                 this.dbContext = dbContext;
             }
             public async Task<BillDto> Handle(GetBillDetailsQuery request, CancellationToken cancellationToken)
             {
-                var entity =  await dbContext.Bills.FindAsync(request.Id);
+                var entity =  await dbContext.FindAsync(request.Id);
                 if(entity == null)
                 {
                     throw new NotFoundException(nameof(Bill), request.Id);

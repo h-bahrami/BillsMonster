@@ -66,9 +66,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": [
-            "Microsoft.NETCore.App"
-          ]
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "none"
+            }
+          }
         }
       }
     },
@@ -134,7 +136,7 @@
             },
             "MongoDB.Bson": {
               "target": "Package",
-              "version": "[2.9.0-beta1, )"
+              "version": "[2.9.0-beta2, )"
             }
           },
           "imports": [
@@ -142,9 +144,11 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": [
-            "Microsoft.NETCore.App"
-          ]
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "none"
+            }
+          }
         }
       }
     }

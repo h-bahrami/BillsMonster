@@ -12,6 +12,5 @@ namespace BillsMonster.Application.Bills.Commands.Create
         public string Title { get; set; }
         public ReminderType Type { get; set; }
         public DateTime AlarmTime { get; set; }
-        public string SomeText { get; internal set; }
     }
 }

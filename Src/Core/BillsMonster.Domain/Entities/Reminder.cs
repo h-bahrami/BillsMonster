@@ -9,9 +9,5 @@ namespace BillsMonster.Domain.Entities
         public string Text { get; set; }
         public ReminderType Type { get; set; }        
         public DateTime AlarmTime { get; set; }
-
-        // public Guid BillId { get; set; }
-        // public Bill Bill { get; set; }
-
     }
 }

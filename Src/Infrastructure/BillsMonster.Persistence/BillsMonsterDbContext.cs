@@ -15,8 +15,7 @@ namespace BillsMonster.Persistence
         public BillsMonsterDbContext(IOptions<Settings> settings)
         {
             var client = new MongoClient(settings.Value.ConnectionString);
-            _database = client.GetDatabase(settings.Value.Database);
-            
+            _database = client.GetDatabase(settings.Value.Database);            
         }
 
         public IMongoCollection<Bill> Bills

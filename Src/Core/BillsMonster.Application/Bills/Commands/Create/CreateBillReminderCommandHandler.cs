@@ -1,10 +1,8 @@
-﻿using BillsMonster.Application.Exceptions;
+﻿using AutoMapper;
 using BillsMonster.Application.Groups.Commands;
-using BillsMonster.Application.Interfaces;
+using BillsMonster.Application.Interfaces.Data;
 using BillsMonster.Domain.Entities;
 using MediatR;
-using MongoDB.Bson;
-using MongoDB.Driver;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,39 +12,30 @@ namespace BillsMonster.Application.Bills.Commands.Create
     {
         public class Handler : IRequestHandler<CreateBillReminderCommand, Unit>
         {
-            private readonly IBillsMonsterDbContext dbContext;
+            private readonly IBillsRepository billsRepo;
             private readonly IMediator mediator;
+            private readonly IMapper mapper;
 
-            public Handler(IBillsMonsterDbContext dbContext, IMediator mediator)
+            public Handler(IBillsRepository repo, IMediator mediator, IMapper mapper)
             {
-                this.dbContext = dbContext;
+                this.billsRepo = repo;
                 this.mediator = mediator;
+                this.mapper = mapper;
             }
 
             public async Task<Unit> Handle(CreateBillReminderCommand request, CancellationToken cancellationToken)
             {
-                
-                var bill = await this.dbContext.Bills.FindAsync(new BsonDocument("BillId", request.BillId)); // .FindAsync(request.BillId);
-                if (bill == null)
+                var reminder = mapper.Map<Reminder>(request);
+                var notifStatus = await billsRepo.AddReminderAsync(request.BillId, reminder) switch
                 {
-                    throw new NotFoundException(nameof(Bill), request.BillId);
-                }
+                    true => Notifications.NotificationStatus.SUCCEED,
+                    false => Notifications.NotificationStatus.FAILED
+                };
 
-
-
-                bill.Reminders.Add(new Reminder()
-                {
-                    Text = request.Title,
-                    AlarmTime = request.AlarmTime,
-                    Type = request.Type
-                });
-
-                await dbContext.SaveChangesAsync(cancellationToken);
-                await mediator.Publish(new EntityCommandsNotification(Notifications.NotificationActionType.CREATE, nameof(Reminder))
-                {
-                    Id = request.BillId,
-                    Title = request.Title
-                }, cancellationToken);
+                await mediator.Publish(
+                    new EntityCommandsNotification(Notifications.NotificationActionType.CREATE,
+                    nameof(Reminder),
+                    notifStatus), cancellationToken);
                 return Unit.Value;
 
             }
