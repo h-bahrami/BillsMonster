@@ -1,10 +1,8 @@
 ﻿using BillsMonster.Application.Interfaces;
 using BillsMonster.Domain.Entities;
 using BillsMonster.Domain.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System;
 
 namespace BillsMonster.Persistence
 {
