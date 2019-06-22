@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 
 namespace BillsMonster.Application.Groups.Commands.Delete
 {
-    public partial class DeleteGroupCommandHandler : IRequestHandler<DeleteGroupCommand, Unit>
+    public class DeleteGroupCommandHandler : IRequestHandler<DeleteGroupCommand, Unit>
     {
         private readonly IGroupsRepository groupsRepo;
-        private readonly IBillsRepository billsRepository;
+        private readonly IBillsRepository groupsRepository;
         private readonly IMediator mediator;
 
         public DeleteGroupCommandHandler(IGroupsRepository groupsRepo, 
             IBillsRepository billsRepository, IMediator mediator)
         {
             this.groupsRepo = groupsRepo;
-            this.billsRepository = billsRepository;
+            this.groupsRepository = billsRepository;
             this.mediator = mediator;
         }
 
@@ -32,7 +32,7 @@ namespace BillsMonster.Application.Groups.Commands.Delete
                 throw new NotFoundException(nameof(Group), request.Id);
             }
 
-            var hasOpenBills = await billsRepository.GetBillsByAsync(request.UserId, request.Id);
+            var hasOpenBills = await groupsRepository.GetBillsByAsync(request.UserId, request.Id);
             if (hasOpenBills.Any())
             {
                 throw new DeleteFailureException(nameof(Group), request.Id, $"There is/are unpaid bills in this group");

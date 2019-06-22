@@ -2,6 +2,7 @@
 using BillsMonster.Domain.Entities;
 using BillsMonster.Domain.Infrastructure;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Threading;
@@ -13,13 +14,13 @@ namespace BillsMonster.Persistence
 {
     public class BillsRepository : IBillsRepository
     {
-        
+
         private readonly CancellationToken cancellationToken;
         private readonly IBillsMonsterDbContext context;
 
         public BillsRepository(IOptions<Settings> settings, CancellationToken cancellationToken = default)
         {
-            
+
             this.cancellationToken = cancellationToken;
             context = new BillsMonsterDbContext(settings);
         }
@@ -65,7 +66,6 @@ namespace BillsMonster.Persistence
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -74,7 +74,7 @@ namespace BillsMonster.Persistence
         {
             try
             {
-                var filter = Builders<Bill>.Filter.Eq(x=>x.Id, bill.Id);
+                var filter = Builders<Bill>.Filter.Eq(x => x.Id, bill.Id);
                 //var update = Builders<Bill>.Update
                 //    .Set(x=>x.GroupId, bill.GroupId)
                 //    .Set(x => x.GroupId, bill.GroupId)
@@ -88,7 +88,7 @@ namespace BillsMonster.Persistence
                 //    .Set(x =>x.Title, bill.Title);
                 //var res = await context.Bills.UpdateOneAsync(filter, update, cancellationToken: cancellationToken);              
 
-                var res = await context.Bills.ReplaceOneAsync(filter, bill, new UpdateOptions() { IsUpsert = true}, cancellationToken);
+                var res = await context.Bills.ReplaceOneAsync(filter, bill, new UpdateOptions() { IsUpsert = true }, cancellationToken);
                 return res.IsAcknowledged && res.ModifiedCount > 0;
             }
             catch (Exception ex)
@@ -104,13 +104,52 @@ namespace BillsMonster.Persistence
             // return await res.FirstOrDefaultAsync(cancellationToken);
             try
             {
-                var bill = await context.Bills.Find(x => x.InternalId == Bill.GetInternalId(id) || x.Id == id).FirstOrDefaultAsync();
-                return bill;
+                var bill = await context.Bills.FindAsync(x => x.InternalId == Bill.GetInternalId(id) || x.Id == id);
+                return bill.FirstOrDefault();
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+        public async Task<IEnumerable<Bill>> GetBillsByAsync(Guid userId)
+        {
+            var asyncCursor = await context.Bills.FindAsync(x => x.UserId == userId);
+            return await asyncCursor.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Bill>> GetBillsByAsync(Guid userId, Guid groupId)
+        {
+            var asyncCursor = await context.Bills.FindAsync(x => x.UserId == userId && x.GroupId == groupId);
+            return await asyncCursor.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Bill>> GetBillsByAsync(Guid userId, string searchWord)
+        {
+            var asyncCursor = await context.Bills.FindAsync(x => x.UserId == userId &&
+            x.Note.Contains(searchWord) || x.Title.Contains(searchWord));
+            return await asyncCursor.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Reminder>> GetRemindersAsync(Guid billId)
+        {
+            var bill = await this.FindAsync(billId);
+            return bill.Reminders;
+        }
+
+        public async Task<bool> AddReminderAsync(Guid billId, Reminder reminder)
+        {
+            var bill = await this.FindAsync(billId);
+            bill.Reminders.Add(reminder);
+            return await this.UpdateAsync(bill);
+        }
+
+        public async Task<bool> DeleteReminderAsync(Guid billId, Guid reminderId)
+        {
+            var bill = await this.FindAsync(billId);
+            var succeed = bill.Reminders.Remove(bill.Reminders.SingleOrDefault(x => x.Id == reminderId));
+            return succeed ? await this.UpdateAsync(bill) : false;
         }
     }
 }

@@ -8,11 +8,11 @@ namespace BillsMonster.Application.Interfaces.Data
 {
     public interface IRepository<TObject>
     {
-        Task InsertAsync(TObject bill);
+        Task InsertAsync(TObject obj);
 
         Task<TObject> FindAsync(Guid id);
 
-        Task<bool> UpdateAsync(TObject bill);
+        Task<bool> UpdateAsync(TObject obj);
 
         Task<bool> DeleteAsync(Guid id);
 
