@@ -38,7 +38,6 @@ namespace BillsMonster.WebApi2
                 .AddNewtonsoftJson();
             //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
 
-            services.AddMvc().AddNewtonsoftJson();
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
             services.AddMediatR(typeof(GetBillsListQuery).GetTypeInfo().Assembly);
 
