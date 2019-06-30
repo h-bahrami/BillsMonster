@@ -11,9 +11,7 @@ using BillsMonster.Infrastructure;
 using MediatR;
 using BillsMonster.Application.Bills.Queries.List;
 using BillsMonster.Application.Infrastructure;
-using Microsoft.AspNetCore.Mvc;
 using BillsMonster.WebApi2.Filters;
-using FluentValidation.AspNetCore;
 using BillsMonster.Domain.Infrastructure;
 using BillsMonster.Application.Interfaces.Data;
 using BillsMonster.Persistence;
@@ -33,8 +31,12 @@ namespace BillsMonster.WebApi2
         public void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddMvc(options => options.Filters.Add(typeof(CustomExceptionFilterAttribute)))
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                .AddMvc(options =>
+                {
+                    options.Filters.Add(typeof(CustomExceptionFilterAttribute));
+                    options.EnableEndpointRouting = false;
+                })
+                //.SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson();
             //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
 
@@ -53,7 +55,7 @@ namespace BillsMonster.WebApi2
             services.AddTransient<IBillsRepository, BillsRepository>();
 
             services.AddTransient<INotificationService, NotificationService>();
-            services.AddSwaggerDocument();
+            //services.AddSwaggerDocument();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,13 +73,15 @@ namespace BillsMonster.WebApi2
 
             app.UseHttpsRedirection();
 
-            app.UseRouting(routes =>
-            {
-                routes.MapControllers();
-            });
-            app.UseSwagger();
-            app.UseSwaggerUi3();
+            //app.UseRouting(routes =>
+            //{
+            //    routes.MapControllers();
+            //});
+
+            //app.UseSwagger();
+            //app.UseSwaggerUi3();
             app.UseAuthorization();
+            app.UseMvc();
         }
     }
 }
