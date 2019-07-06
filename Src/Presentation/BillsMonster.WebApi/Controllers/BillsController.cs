@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BillsMonster.WebApi2.Controllers
+namespace BillsMonster.WebApi.Controllers
 {
     
     [Route("api/[controller]")]

@@ -1,22 +1,22 @@
+using AutoMapper;
+using BillsMonster.Application.Bills.Queries.List;
+using BillsMonster.Application.Infrastructure;
+using BillsMonster.Application.Infrastructure.AutoMapper;
+using BillsMonster.Application.Interfaces;
+using BillsMonster.Application.Interfaces.Data;
+using BillsMonster.Domain.Infrastructure;
+using BillsMonster.Infrastructure;
+using BillsMonster.Persistence;
+using BillsMonster.WebApi.Filters;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AutoMapper;
 using System.Reflection;
-using BillsMonster.Application.Infrastructure.AutoMapper;
-using BillsMonster.Application.Interfaces;
-using BillsMonster.Infrastructure;
-using MediatR;
-using BillsMonster.Application.Bills.Queries.List;
-using BillsMonster.Application.Infrastructure;
-using BillsMonster.WebApi2.Filters;
-using BillsMonster.Domain.Infrastructure;
-using BillsMonster.Application.Interfaces.Data;
-using BillsMonster.Persistence;
 
-namespace BillsMonster.WebApi2
+namespace BillsMonster.WebApi
 {
     public class Startup
     {
@@ -36,7 +36,7 @@ namespace BillsMonster.WebApi2
                     options.Filters.Add(typeof(CustomExceptionFilterAttribute));
                     options.EnableEndpointRouting = false;
                 })
-                //.SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+                // .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
                 .AddNewtonsoftJson();
             //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
 
@@ -71,7 +71,7 @@ namespace BillsMonster.WebApi2
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             //app.UseRouting(routes =>
             //{

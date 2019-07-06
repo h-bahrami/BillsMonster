@@ -121,21 +121,17 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
-            "AutoMapper": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[6.1.1, )"
             },
-            "FluentValidation": {
+            "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[8.5.0-preview2, )"
             },
             "MediatR": {
               "target": "Package",
               "version": "[7.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.0.0-preview6.19304.10, )"
             },
             "Microsoft.Extensions.Logging.Abstractions": {
               "target": "Package",

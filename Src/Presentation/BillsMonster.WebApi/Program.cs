@@ -1,16 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
-namespace BillsMonster.WebApi2
+namespace BillsMonster.WebApi
 {
     public class Program
     {
@@ -24,7 +15,7 @@ namespace BillsMonster.WebApi2
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseKestrel();
+                    // webBuilder.UseKestrel();
                     //webBuilder.ConfigureKestrel(options =>
                     //{
                     //    options.Listen(IPAddress.Loopback, 5001, listenOptions => {

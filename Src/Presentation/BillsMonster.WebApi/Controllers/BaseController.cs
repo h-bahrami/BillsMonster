@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BillsMonster.WebApi2.Controllers
+
+namespace BillsMonster.WebApi.Controllers
 {
     public class BaseController : Controller
     {

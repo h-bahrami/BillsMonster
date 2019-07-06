@@ -1,9 +1,4 @@
-﻿using AutoMapper.QueryableExtensions;
-using BillsMonster.Application.Interfaces;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
+﻿using MediatR;
 using System.Collections.Generic;
 
 namespace BillsMonster.Application.Groups.Queries.List
