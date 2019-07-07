@@ -8,6 +8,7 @@ using BillsMonster.Domain.Infrastructure;
 using BillsMonster.Infrastructure;
 using BillsMonster.Persistence;
 using BillsMonster.WebApi.Filters;
+using MediatR.Pipeline;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -42,17 +43,24 @@ namespace BillsMonster.WebApi
             //.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateCustomerCommandValidator>());
 
             services.AddAutoMapper(new Assembly[] { typeof(AutoMapperProfile).GetTypeInfo().Assembly });
-            services.AddMediatR(typeof(GetBillsListQuery).GetTypeInfo().Assembly);
 
+            #region MediatR
+
+            services.AddScoped<ServiceFactory>(p => p.GetService);
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+            //services.AddMediatR(typeof(GetBillsListQuery).GetTypeInfo().Assembly);
+            services.Scan(scan =>
+            scan.FromAssembliesOf(typeof(IMediator), typeof(GetBillsListQuery))
+            .AddClasses()
+            .AsImplementedInterfaces());
+
+            #endregion
 
             #region DB Connection
-
             services.Configure<MongodbConnection>(Configuration.GetSection(nameof(MongodbConnection)));
-            services.AddSingleton<IMongodbConnection>(sp => sp.GetRequiredService<IOptions<MongodbConnection>>().Value); 
+            services.AddSingleton<IMongodbConnection>(sp => sp.GetRequiredService<IOptions<MongodbConnection>>().Value);
             services.AddScoped<IBillsMonsterDbContext, BillsMonsterDbContext>();
-
             #endregion
 
             services.AddTransient<IBillsRepository, BillsRepository>();

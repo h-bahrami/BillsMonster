@@ -4,9 +4,8 @@ using System;
 
 namespace BillsMonster.Application.Bills.Commands.Create
 {
-    public partial class CreateBillCommand : IRequest
+    public partial class CreateBillCommand : IRequest<Guid>
     {
-        public Guid Id { get; set; }
         public DateTime RecordTime { get; set; }
         public string Title { get; set; }
         public string Note { get; set; }

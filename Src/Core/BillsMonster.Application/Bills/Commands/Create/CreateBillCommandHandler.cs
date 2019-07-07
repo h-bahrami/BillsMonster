@@ -3,12 +3,13 @@ using BillsMonster.Application.Groups.Commands;
 using BillsMonster.Application.Interfaces.Data;
 using BillsMonster.Domain.Entities;
 using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace BillsMonster.Application.Bills.Commands.Create
 {
-    public class CreateBillCommandHandler : IRequestHandler<CreateBillCommand, Unit>
+    public class CreateBillCommandHandler : IRequestHandler<CreateBillCommand, Guid>
     {
         private readonly IBillsRepository billsRepository;
         private readonly IMediator mediator;
@@ -20,7 +21,7 @@ namespace BillsMonster.Application.Bills.Commands.Create
             this.mediator = mediator;
             this.mapper = mapper;
         }
-        public async Task<Unit> Handle(CreateBillCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateBillCommand request, CancellationToken cancellationToken)
         {
             var mappedObject = mapper.Map<Bill>(request);
             await billsRepository.InsertAsync(mappedObject);
@@ -30,7 +31,7 @@ namespace BillsMonster.Application.Bills.Commands.Create
                 Id = mappedObject.Id,
                 Title = mappedObject.Title
             }, cancellationToken);
-            return Unit.Value;
+            return mappedObject.Id;
         }
     }
 }

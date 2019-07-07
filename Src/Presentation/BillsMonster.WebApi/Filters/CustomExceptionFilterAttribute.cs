@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BillsMonster.Application.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
@@ -20,10 +21,10 @@ namespace BillsMonster.WebApi.Filters
 
             var code = HttpStatusCode.InternalServerError;
 
-            //if (context.Exception is NotFoundException)
-            //{
-            //    code = HttpStatusCode.NotFound;
-            //}
+            if (context.Exception is NotFoundException)
+            {
+                code = HttpStatusCode.NotFound;
+            }
 
             context.HttpContext.Response.ContentType = "application/json";
             context.HttpContext.Response.StatusCode = (int)code;

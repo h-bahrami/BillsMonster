@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using BillsMonster.Application.Bills.Queries.Detail;
+using BillsMonster.Application.Bills.Queries.List;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BillsMonster.WebApi.Controllers
@@ -11,22 +15,25 @@ namespace BillsMonster.WebApi.Controllers
        
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IActionResult> Get()
         {             
-            return new string[] { "value1", "value2" };
+            var result = await Mediator.Send(new GetBillsListQuery());
+            return Ok(result);
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return "value";
+            var item = await Mediator.Send(new GetBillDetailsQuery() { Id = id});
+            return Ok(item);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post([FromBody] string value)
         {
+            return Ok();
         }
 
         // PUT api/values/5

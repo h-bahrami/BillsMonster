@@ -7,8 +7,8 @@ namespace BillsMonster.Application.Groups.Commands.Create
     {
         public CreateGroupCommandValidator()
         {
-            RuleFor(x => x.Model.Title).MaximumLength(50).NotEmpty();
-            RuleFor(x => x.Model.Description).MaximumLength(250);            
+            RuleFor(x => x.Title).MaximumLength(50).NotEmpty();
+            RuleFor(x => x.Description).MaximumLength(250);            
         }
     }
 }
