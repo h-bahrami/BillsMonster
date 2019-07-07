@@ -11,7 +11,7 @@ namespace BillsMonster.Persistence
         // protected readonly IMongoDatabase Database;
         protected readonly IMongoCollection<TObject> Collection;
 
-        public DataServiceBase(Settings settings, string collectionName)
+        public DataServiceBase(MongodbConnection settings, string collectionName)
         {
             var mongoClient = new MongoClient(settings.ConnectionString);
             var database = mongoClient.GetDatabase(settings.Database);

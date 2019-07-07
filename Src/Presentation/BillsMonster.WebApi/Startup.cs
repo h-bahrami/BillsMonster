@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System.Reflection;
 
 namespace BillsMonster.WebApi
@@ -46,11 +47,13 @@ namespace BillsMonster.WebApi
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
 
-            services.Configure<Settings>(options =>
-            {
-                options.Database = Configuration.GetSection("MongodbConnection:Database").Value;
-                options.ConnectionString = Configuration.GetSection("MongodbConnection:ConnectionString").Value;
-            });
+            #region DB Connection
+
+            services.Configure<MongodbConnection>(Configuration.GetSection(nameof(MongodbConnection)));
+            services.AddSingleton<IMongodbConnection>(sp => sp.GetRequiredService<IOptions<MongodbConnection>>().Value); 
+            services.AddScoped<IBillsMonsterDbContext, BillsMonsterDbContext>();
+
+            #endregion
 
             services.AddTransient<IBillsRepository, BillsRepository>();
 

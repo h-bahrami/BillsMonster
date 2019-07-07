@@ -10,7 +10,7 @@ namespace BillsMonster.Persistence
     {
         private readonly IMongoDatabase _database;
 
-        public BillsMonsterDbContext(IOptions<Settings> settings)
+        public BillsMonsterDbContext(IOptions<MongodbConnection> settings)
         {
             var client = new MongoClient(settings.Value.ConnectionString);
             _database = client.GetDatabase(settings.Value.Database);            
@@ -20,31 +20,24 @@ namespace BillsMonster.Persistence
         {
             get
             {
-                return _database.GetCollection<Bill>("Bills");
+                return _database.GetCollection<Bill>("bills");
             }
         }
         public IMongoCollection<Group> Groups
         {
             get
             {
-                return _database.GetCollection<Group>("Groups");
+                return _database.GetCollection<Group>("groups");
             }
         }
         public IMongoCollection<User> Users
         {
             get
             {
-                return _database.GetCollection<User>("Users");
+                return _database.GetCollection<User>("users");
             }
         }
-        public IMongoCollection<Reminder> Reminders
-        {
-            get
-            {
-                return _database.GetCollection<Reminder>("Reminders");
-            }
-        }
-
+        
         public void Dispose()
         {
             
